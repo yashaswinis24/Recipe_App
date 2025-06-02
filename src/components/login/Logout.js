@@ -11,7 +11,7 @@ const Logout = () => {
     navigate("/login");
   }, [logout, navigate]);
 
-  return null; // or a loading spinner/message if you want
+  return null; 
 };
 
 export default Logout;
