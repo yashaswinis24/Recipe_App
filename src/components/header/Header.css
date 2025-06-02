@@ -1,0 +1,40 @@
+
+
+.header-appbar {
+  background: linear-gradient(90deg, #8e9aaf, #577590);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-toolbar {
+  padding: 0px 20px;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.header-title:hover {
+  color:43aa8b ;
+}
+
+.header-button {
+  color: #fff !important;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.header-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.header-welcome {
+  color: #fff;
+  margin-right: 10px;
+  font-style: italic;
+}

@@ -1,0 +1,21 @@
+.home-container {
+  background-color: #d1b3c4;
+  /* padding: 2rem; */
+  /* border-radius: 12px;
+  min-height: 100vh; */
+}
+
+.home-title {
+  color: #540b0e;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.no-recipes {
+  width: 100%;
+  margin-top: 2rem;
+  color: #333;
+  font-size: 1.2rem;
+  font-style: italic;
+}

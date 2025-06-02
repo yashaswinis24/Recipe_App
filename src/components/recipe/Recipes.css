@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700&display=swap');
+
+/* Recipe Card */
+.recipe-card {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  margin: 30px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.wide-card {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Typography */
+.recipe-title {
+  font-family: 'Pacifico', cursive;
+  color: #6a1b9a;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.recipe-section-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin-top: 30px;
+  color: #8e24aa;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+/* Instructions */
+.recipe-instructions {
+  background: #ffd6a5;
+  padding: 24px;
+  border-radius: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.05rem;
+  color: #07010b;
+  line-height: 1.8;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.05);
+  counter-reset: step;
+  text-align: justify;
+}
+
+.recipe-instructions p {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
+
+.recipe-instructions p::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #bd67ec;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Rating Section */
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  justify-content: center;
+  background-color: #f3e5f5;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Back Button */
+.back-button {
+  margin-bottom: 20px;
+  background: #4a759a;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background: #577590;
+}
+
+/* Ingredients Section */
+.ingredients-list {
+  gap: 12px;
+  background: #fff8e1;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  justify-content: center;
+}
+
+.ingredients-list .MuiListItem-root {
+  background: #fff3e0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  color: #6d4c41;
+  font-size: 1rem;
+  min-width: 180px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.ingredients-list .MuiListItem-root:hover {
+  transform: scale(1.03);
+  background-color: #ffe0b2;
+}
