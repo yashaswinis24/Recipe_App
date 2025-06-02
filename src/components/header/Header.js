@@ -62,6 +62,15 @@ const Header = () => {
     setDrawerOpen(false);
   };
 
+  const handleFavouritesClick = () => {
+    if (isAuthenticated) {
+      navigate("/favourites");
+    } else {
+      alert("Please log in to view your favourites.");
+      navigate("/login");
+    }
+  };
+
   return (
     <AppBar position="static" color="primary" className="header-appbar">
       <Toolbar className="header-toolbar" sx={{ justifyContent: "space-between" }}>
@@ -89,7 +98,7 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded={Boolean(anchorEl) ? "true" : undefined}
               >
-               Munch Menu
+                Munch Menu
               </Button>
 
               <Menu
@@ -106,7 +115,6 @@ const Header = () => {
                   horizontal: "left",
                 }}
                 keepMounted
-                
               >
                 {cuisines.map((cuisine, index) => (
                   <MenuItem key={index} onClick={() => handleCuisineSelect(cuisine)}>
@@ -115,7 +123,7 @@ const Header = () => {
                 ))}
               </Menu>
 
-              <Button className="header-button" onClick={() => navigate("/favourites")}>
+              <Button className="header-button" onClick={handleFavouritesClick}>
                 Favourites
               </Button>
 
@@ -173,7 +181,13 @@ const Header = () => {
                       </List>
                     </Collapse>
 
-                    <ListItem button onClick={() => navigate("/favourites")}>
+                    <ListItem
+                      button
+                      onClick={() => {
+                        handleFavouritesClick();
+                        setDrawerOpen(false);
+                      }}
+                    >
                       <ListItemText primary="Favourites" />
                     </ListItem>
 

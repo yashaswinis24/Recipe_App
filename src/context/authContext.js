@@ -1,48 +1,3 @@
-// import { createContext, useContext, useState } from "react";
-
-// const AuthContext = createContext();
-
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(() => {
-//     const storedUser = localStorage.getItem("user");
-//     return storedUser ? JSON.parse(storedUser) : null;
-//   });
-
-//   const login = (email, password) => {
-//     const storedUser = JSON.parse(localStorage.getItem("user"));
-//     if (
-//       storedUser &&
-//       storedUser.email === email &&
-//       storedUser.password === password
-//     ) {
-//       setUser(storedUser);
-//       return true;
-//     }
-//     return false;
-//   };
-
-//   const signup = (email, password) => {
-//     const newUser = { email, password };
-//     localStorage.setItem("user", JSON.stringify(newUser));
-//     setUser(newUser);
-//   };
-
-//   const logout = () => {
-//     setUser(null);
-//     localStorage.removeItem("user");
-//   };
-
-//   const isAuthenticated = !!user;
-
-//   return (
-//     <AuthContext.Provider value={{ user, login, signup, logout, isAuthenticated }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
-
-// export const useAuth = () => useContext(AuthContext);
-
 
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -52,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -60,6 +16,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     }
   }, []);
+
 
   const login = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -78,6 +35,7 @@ export const AuthProvider = ({ children }) => {
     return false;
   };
 
+ 
   const signup = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -93,6 +51,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Logout function
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
@@ -102,11 +61,12 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, signup, logout, isAuthenticated }}
+      value={{ user, isAuthenticated, login, signup, logout }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
+
 
 export const useAuth = () => useContext(AuthContext);

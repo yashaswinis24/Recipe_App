@@ -6,24 +6,34 @@ import {
   Typography,
   IconButton,
   Button,
-
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import './recipeCard.css';
+import "./recipeCard.css";
 
-const RecipeCard = ({ recipe, isFavorite, onToggleFavorite, onViewRecipe }) => {
+const RecipeCard = ({
+  recipe,
+  isFavorite,
+  onToggleFavorite,
+  onViewRecipe,
+  onRequireLogin,
+}) => {
   const formatRecipeName = (name) => {
     const words = name.split(" ");
     if (words.length <= 3) return name;
     return `${words.slice(0, 3).join(" ")}\n${words.slice(3).join(" ")}`;
   };
 
-  return (
-    
-    <Card className="recipe-card" sx={{ml:2}}>
-     
+  const handleFavoriteClick = () => {
+    if (onToggleFavorite) {
+      onToggleFavorite(recipe);
+    } else if (onRequireLogin) {
+      onRequireLogin();
+    }
+  };
 
+  return (
+    <Card className="recipe-card" sx={{ ml: 2 }}>
       <CardMedia
         component="img"
         height="200"
@@ -37,15 +47,14 @@ const RecipeCard = ({ recipe, isFavorite, onToggleFavorite, onViewRecipe }) => {
         </Typography>
         <div className="recipe-actions">
           <IconButton
-            onClick={() => onToggleFavorite(recipe)}
+            onClick={handleFavoriteClick}
             color="error"
             className="recipe-icon-button"
           >
             {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
           <Button
-          color="secondary"
-        
+            color="secondary"
             className="recipe-button"
             onClick={() => onViewRecipe(recipe)}
           >

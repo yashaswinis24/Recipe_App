@@ -17,7 +17,7 @@ const CuisineRecipes = () => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
 
   useEffect(() => {
     axios
@@ -35,12 +35,16 @@ const CuisineRecipes = () => {
         setLoading(false);
       });
 
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavorites(storedFavorites);
-  }, [cuisineType]);
+    if (isAuthenticated && user) {
+      const storedFavorites = JSON.parse(localStorage.getItem(`favorites_${user.email}`)) || [];
+      setFavorites(storedFavorites);
+    } else {
+      setFavorites([]); 
+    }
+  }, [cuisineType, isAuthenticated, user]);
 
   const toggleFavorite = (recipe) => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated || !user) {
       navigate("/signup");
       return;
     }
@@ -51,16 +55,17 @@ const CuisineRecipes = () => {
       : [...favorites, recipe];
 
     setFavorites(updatedFavorites);
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    localStorage.setItem(`favorites_${user.email}`, JSON.stringify(updatedFavorites));
 
-    if (!isFavorite) navigate("/favourites");
+    if (!isFavorite) navigate("/favourites", { state: { refresh: true } });
+  };
+
+  const handleRequireLogin = () => {
+    navigate("/signup");
   };
 
   return (
-    <Container
-      maxWidth="xl"
-      sx={{ backgroundColor: "#d1b3c4", margin: 0 }}
-    >
+    <Container maxWidth="xl" sx={{ backgroundColor: "#d1b3c4", margin: 0 }}>
       {loading ? (
         <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
           <CircularProgress />
@@ -73,7 +78,8 @@ const CuisineRecipes = () => {
                 <RecipeCard
                   recipe={recipe}
                   isFavorite={favorites.some((item) => item.id === recipe.id)}
-                  onToggleFavorite={toggleFavorite}
+                  onToggleFavorite={isAuthenticated ? toggleFavorite : null}
+                  onRequireLogin={!isAuthenticated ? handleRequireLogin : null}
                   onViewRecipe={(recipe) => {
                     if (!isAuthenticated) {
                       navigate("/signup");

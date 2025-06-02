@@ -32,7 +32,7 @@
   display: block;
 }
 
-/* Content Area */
+
 .recipe-content {
   padding: 0 !important;
   display: flex;
@@ -48,7 +48,7 @@
   color: #700fbf;
   white-space: pre-line;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin: 12px 8px 0 8px;
 }
 
