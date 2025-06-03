@@ -65,7 +65,13 @@ const CuisineRecipes = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ backgroundColor: "#d1b3c4", margin: 0 }}>
+    <Container maxWidth="xl"
+      sx={{
+        backgroundColor: "#d1b3c4",
+        padding: "2rem",
+       
+        minHeight: "100vh",
+      }} >
       {loading ? (
         <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
           <CircularProgress />

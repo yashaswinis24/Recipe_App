@@ -33,7 +33,7 @@ const RecipeCard = ({
   };
 
   return (
-    <Card className="recipe-card" sx={{ ml: 2 }}>
+    <Card className="recipe-card">
       <CardMedia
         component="img"
         height="200"
@@ -41,7 +41,7 @@ const RecipeCard = ({
         alt={recipe.name}
         className="recipe-media"
       />
-      <CardContent className="recipe-content" sx={{ padding: 5 }}>
+      <CardContent className="recipe-content" >
         <Typography variant="h6" className="recipe-title">
           {formatRecipeName(recipe.name)}
         </Typography>
@@ -54,7 +54,7 @@ const RecipeCard = ({
             {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
           <Button
-            color="secondary"
+            
             className="recipe-button"
             onClick={() => onViewRecipe(recipe)}
           >

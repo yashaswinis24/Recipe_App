@@ -7,13 +7,14 @@ import Login from './components/login/Login';
 import Signup from './components/login/SignUp';
 import Logout from './components/login/Logout';
 import Header from "./components/header/Header";
+import Footer from "./components/Footer";
 import CuisineRecipes from "./components/recipe/cuisineRecipes";
 import { AuthProvider } from './context/authContext';
 
 function AppContent() {
   const location = useLocation();
   const hideHeaderRoutes = ["/login", "/signup"];
-
+  const hideFooterRoutes=["/login","/signup"];
   return (
     <>
       {!hideHeaderRoutes.includes(location.pathname) && <Header />}
@@ -25,8 +26,10 @@ function AppContent() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/logout' element={<Logout />} />
+        
         <Route path='*' element={<Home />} />
       </Routes>
+      {!hideFooterRoutes.includes(location.pathname) &&<Footer/>}
     </>
   );
 }

@@ -1,9 +1,9 @@
 
-
 .header-appbar {
-  background: linear-gradient(90deg, #8e9aaf, #577590);
+  background: linear-gradient(90deg, #8e9aaf, #577590) !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .header-toolbar {
   padding: 0px 20px;

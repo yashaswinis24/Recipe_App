@@ -72,14 +72,14 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" color="primary" className="header-appbar">
-      <Toolbar className="header-toolbar" sx={{ justifyContent: "space-between" }}>
+    <AppBar position="static"  className="header-appbar">
+      <Toolbar className="header-toolbar" >
         <Typography
           variant="h6"
-          component="div"
+        
           className="header-title"
           onClick={() => navigate("/")}
-          sx={{ cursor: "pointer" }}
+          sx={{ cursor: "pointer" ,textDecoration:"none"}}
         >
           Recipe App
         </Typography>
@@ -163,7 +163,7 @@ const Header = () => {
                     </ListItem>
 
                     <ListItem button onClick={() => setDrawerRecipesOpen(!drawerRecipesOpen)}>
-                      <ListItemText primary="Recipes" />
+                      <ListItemText primary="Munch Menu" />
                       {drawerRecipesOpen ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={drawerRecipesOpen} timeout="auto" unmountOnExit>

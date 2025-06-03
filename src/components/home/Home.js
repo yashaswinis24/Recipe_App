@@ -93,7 +93,7 @@ const Home = () => {
         </Box>
       ) : (
         <>
-          <Typography variant="h4" align="center" className="home-title" gutterBottom>
+          <Typography variant="h4" align="center" className="home-title" >
             Recipes
           </Typography>
           <Search search={search} setSearch={setSearch} />
@@ -124,12 +124,12 @@ const Home = () => {
           </Grid>
 
           {!search && (
-            <Stack spacing={2} alignItems="center" marginTop={4}>
+            <Stack spacing={2} alignItems="center" marginTop={8}>
               <Pagination
                 count={totalPages}
                 page={page}
                 onChange={(e, val) => setPage(val)}
-                color="primary"
+                color="secondary"
               />
             </Stack>
           )}

@@ -1,7 +1,8 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700&display=swap');
 
 
-.recipe-card {
+div.recipe-card {
   width: 320px;
   height: 100%;
   display: flex;
@@ -15,17 +16,17 @@
   margin: 20px auto;
 }
 
-.recipe-card:nth-child(3n + 1) {
+div.recipe-card:nth-child(3n + 1) {
   margin-left: 45px;
 }
 
-.recipe-card:hover {
+div.recipe-card:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
 }
 
 
-.recipe-media {
+.recipe-card img.recipe-media {
   object-fit: cover;
   width: 100%;
   height: 300px;
@@ -33,17 +34,17 @@
 }
 
 
-.recipe-content {
-  padding: 0 !important;
+.recipe-card .recipe-content {
+  padding: 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
-  background-color: #f9f9f9;
+  background-color: #e8e2e2;
 }
 
-
-.recipe-title {
+/* Title */
+.recipe-card .recipe-title {
   font-family: 'Pacifico', cursive;
   color: #700fbf;
   white-space: pre-line;
@@ -53,7 +54,7 @@
 }
 
 
-.recipe-actions {
+.recipe-card .recipe-actions {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
@@ -62,23 +63,23 @@
 }
 
 
-.recipe-icon-button {
+.recipe-card .recipe-icon-button {
   transition: transform 0.2s;
 }
 
-.recipe-icon-button:hover {
+.recipe-card .recipe-icon-button:hover {
   transform: scale(1.2);
 }
 
 
-.recipe-button {
+.recipe-card .recipe-button {
   width: 100px;
   height: 40px;
   text-transform: none;
   font-weight: 500;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  background-color: #9a8c98;
+  background-color: #b1a7af;
   color: #141213;
   border: none;
   cursor: pointer;
@@ -87,6 +88,6 @@
   margin-right: 12px;
 }
 
-.recipe-button:hover {
+.recipe-card .recipe-button:hover {
   background-color: #68656b;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Typography, Grid, Container, Button } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/authContext";
@@ -10,33 +10,29 @@ const Favourites = () => {
   const location = useLocation();
   const { isAuthenticated, user } = useAuth();
 
- 
-  const loadFavorites = () => {
+  const loadFavorites = useCallback(() => {
     if (isAuthenticated && user) {
       const stored = JSON.parse(localStorage.getItem(`favorites_${user.email}`)) || [];
       setFavorites(stored);
     }
-  };
-
-  
-  useEffect(() => {
-    loadFavorites();
   }, [isAuthenticated, user]);
 
-  
+  useEffect(() => {
+    loadFavorites();
+  }, [loadFavorites]);
+
   useEffect(() => {
     if (location.state?.refresh) {
       loadFavorites();
       navigate(location.pathname, { replace: true, state: {} });
     }
-  }, [location.state]);
+  }, [location, navigate, loadFavorites]);
 
   const handleToggleFavorite = (recipe) => {
     const updated = favorites.filter((item) => item.id !== recipe.id);
     setFavorites(updated);
     localStorage.setItem(`favorites_${user.email}`, JSON.stringify(updated));
   };
-
 
   const handleViewRecipe = (recipe) => {
     navigate(`/recipe/${recipe.id}`, { state: { recipe } });
