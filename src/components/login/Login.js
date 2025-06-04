@@ -19,7 +19,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // Redirect if already logged in
+ 
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "true") {
       navigate("/");

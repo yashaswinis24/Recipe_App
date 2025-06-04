@@ -1,8 +1,8 @@
 .home-container {
   background-color: #d1b3c4;
-  /* padding: 2rem; */
-  /* border-radius: 12px;
-  min-height: 100vh; */
+  padding: 2rem; 
+   border-radius: 12px; 
+  min-height: 100vh;
 }
 
 .home-title {
