@@ -16,9 +16,12 @@ div.recipe-card {
   margin: 20px auto;
 }
 
-div.recipe-card:nth-child(3n + 1) {
-  margin-left: 45px;
+@media (min-width: 768px) {
+  div.recipe-card:nth-child(3n + 1) {
+    margin-left: 45px;
+  }
 }
+
 
 div.recipe-card:hover {
   transform: scale(1.02);
@@ -43,7 +46,6 @@ div.recipe-card:hover {
   background-color: #e8e2e2;
 }
 
-/* Title */
 .recipe-card .recipe-title {
   font-family: 'Pacifico', cursive;
   color: #700fbf;

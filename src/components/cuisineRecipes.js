@@ -8,8 +8,8 @@ import {
   Box,
 } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/authContext";
-import RecipeCard from "../recipeCard/recipeCard";
+import { useAuth } from "../context/authContext";
+import RecipeCard from "./recipeCard/recipeCard";
 
 const CuisineRecipes = () => {
   const { cuisineType } = useParams();
@@ -36,10 +36,11 @@ const CuisineRecipes = () => {
       });
 
     if (isAuthenticated && user) {
-      const storedFavorites = JSON.parse(localStorage.getItem(`favorites_${user.email}`)) || [];
+      const storedFavorites =
+        JSON.parse(localStorage.getItem(`favorites_${user.email}`)) || [];
       setFavorites(storedFavorites);
     } else {
-      setFavorites([]); 
+      setFavorites([]);
     }
   }, [cuisineType, isAuthenticated, user]);
 
@@ -55,7 +56,10 @@ const CuisineRecipes = () => {
       : [...favorites, recipe];
 
     setFavorites(updatedFavorites);
-    localStorage.setItem(`favorites_${user.email}`, JSON.stringify(updatedFavorites));
+    localStorage.setItem(
+      `favorites_${user.email}`,
+      JSON.stringify(updatedFavorites)
+    );
 
     if (!isFavorite) navigate("/favourites", { state: { refresh: true } });
   };
@@ -65,15 +69,21 @@ const CuisineRecipes = () => {
   };
 
   return (
-    <Container maxWidth="xl"
+    <Container
+      maxWidth="xl"
       sx={{
         backgroundColor: "#d1b3c4",
         padding: "2rem",
-       
         minHeight: "100vh",
-      }} >
+      }}
+    >
       {loading ? (
-        <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="50vh"
+        >
           <CircularProgress />
         </Box>
       ) : (

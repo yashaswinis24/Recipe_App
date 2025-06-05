@@ -8,7 +8,7 @@ import Signup from './components/login/SignUp';
 import Logout from './components/login/Logout';
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
-import CuisineRecipes from "./components/recipe/cuisineRecipes";
+import CuisineRecipes from "./components/cuisineRecipes";
 import { AuthProvider } from './context/authContext';
 
 function AppContent() {
