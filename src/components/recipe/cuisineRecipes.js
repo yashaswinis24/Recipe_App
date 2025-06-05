@@ -8,8 +8,8 @@ import {
   Box,
 } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import RecipeCard from "./recipeCard/recipeCard";
+import { useAuth } from "../../context/authContext";
+import RecipeCard from "../recipeCard/recipeCard";
 
 const CuisineRecipes = () => {
   const { cuisineType } = useParams();

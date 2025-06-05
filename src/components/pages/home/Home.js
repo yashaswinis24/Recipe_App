@@ -10,10 +10,10 @@ import {
   CircularProgress,
   Box,
 } from "@mui/material";
-import Search from "../search/Search";
-import { useAuth } from "../../context/authContext";
+import Search from "../../search/Search";
+import { useAuth } from "../../../context/authContext";
 import { useNavigate } from "react-router-dom";
-import RecipeCard from "../recipeCard/recipeCard";
+import RecipeCard from "../../recipeCard/recipeCard";
 import './Home.css';
 
 const Home = () => {

@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
@@ -7,7 +6,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -16,7 +14,6 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     }
   }, []);
-
 
   const login = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -35,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     return false;
   };
 
- 
   const signup = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -44,14 +40,12 @@ export const AuthProvider = ({ children }) => {
       const newUser = { email, password };
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("currentUser", JSON.stringify(newUser));
-      setUser(newUser);
-      setIsAuthenticated(true);
+      return true; // ✅ Return true on successful signup
     }
+
+    return false; // ❌ Return false if user already exists
   };
 
-  // Logout function
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
@@ -67,6 +61,5 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
 
 export const useAuth = () => useContext(AuthContext);

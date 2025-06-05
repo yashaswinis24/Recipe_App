@@ -1,0 +1,70 @@
+
+.signup-container {
+  min-height: 100vh;
+  background-image: url("https://img.freepik.com/premium-photo/various-spices-herbs-wooden-spoons_35641-2807.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.signup-paper.MuiPaper-root {
+  padding: 32px;
+  max-width: 400px;
+  width: 100%;
+  margin: 16px;
+  border-radius: 24px;
+  background-color: #dae0f2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.signup-paper.MuiPaper-root:hover {
+  transform: scale(1.01);
+}
+
+.signup-title.MuiTypography-root {
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.signup-input.MuiTextField-root {
+  margin-bottom: 16px;
+}
+
+
+.signup-input .MuiInputBase-root,
+.signup-input .MuiOutlinedInput-root {
+  border-radius: 10px;
+}
+
+.signup-input .Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+
+
+.signup-button.MuiButton-root {
+  margin-top: 20px;
+  padding: 12px 0;
+  font-weight: bold;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #fff;
+  border-radius: 10px;
+  text-transform: none;
+  transition: background 0.3s ease;
+}
+
+.signup-button.MuiButton-root:hover {
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+}
+
+
+.signup-footer.MuiTypography-root {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+}

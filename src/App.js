@@ -1,14 +1,14 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Home from "./components/home/Home";
+import Home from "./components/pages/home/Home";
 import Favourites from './components/Favourites';
 import Recipe from './components/recipe/Recipes';
-import Login from './components/login/Login';
-import Signup from './components/login/SignUp';
-import Logout from './components/login/Logout';
+import Login from './components/pages/login/Login';
+import Signup from './components/pages/signup/Signup';
+import Logout from './components/pages/Logout';
 import Header from "./components/header/Header";
-import Footer from "./components/Footer";
-import CuisineRecipes from "./components/cuisineRecipes";
+import Footer from "./components/footer/Footer";
+import CuisineRecipes from "./components/recipe/cuisineRecipes";
 import { AuthProvider } from './context/authContext';
 
 function AppContent() {
